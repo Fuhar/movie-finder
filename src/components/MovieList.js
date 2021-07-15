@@ -1,4 +1,4 @@
-import React from 'react';
+{/*import React from 'react';
 
 const MovieList = (props) => {
 	//const FavouriteComponent = props.favouriteComponent;
@@ -14,11 +14,11 @@ const MovieList = (props) => {
 						className='overlay d-flex align-items-center justify-content-center'
 					>
 						<FavouriteComponent />
-					</div>*/}
+					</div>//
 				</div>
 			))}
 		</>
 	);
 };
 
-export default MovieList;
+export default MovieList;*/}

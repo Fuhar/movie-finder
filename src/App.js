@@ -3,14 +3,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieList from './components/MovieList';
 import MovieListHeading from './components/MovieListHeading';
-import SearchBox from './components/SearchBox';
+//import SearchBox from './components/SearchBox';
 //import AddFavourites from './components/AddToFavourites';
-//import RemoveFavourites from './components/RemoveFavourites';
+//import RemoveFavourites from './components/RemoveFavourites';\
+import { Provider } from "react-redux";
+import store from "./store";
+import Home from "./Home";
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
-	const [searchValue, setSearchValue] = useState('');
-	//const [favourites, setFavourites] = useState([]);
+	{/*const [searchValue, setSearchValue] = useState('');
+	const [favourites, setFavourites] = useState([]);
 
 	const getMovieRequest = async (searchValue) => {
 		const url = `https://api.themoviedb.org/3/search/movie?api_key=4e44d9029b1270a757cddc766a1bcb63&query=${searchValue}`;
@@ -23,7 +26,7 @@ const App = () => {
 		}
 	};
 
-	{/*const addFavouriteMovie = (movie) => {
+	const addFavouriteMovie = (movie) => {
 		const newFavouriteList = [...favourites, movie];
 		setFavourites(newFavouriteList);
 	};
@@ -34,21 +37,24 @@ const App = () => {
 		);
 
 		setFavourites(newFavouriteList);
-	};*/}
+	};
 
 	useEffect(() => {
 		getMovieRequest(searchValue);
-	}, [searchValue]);
+	}, [searchValue]); */}
 
 	return (
 		<div className='container-fluid movie-app'>
 			<div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Movies' />
-				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+				{/*<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} /> */}
 			</div>
 			<div className='row'>
-				<MovieList movies={movies}/>
-					{/*favouriteComponent={AddFavourites}
+			<Provider store={store}>
+	 			<Home />
+ 			</Provider>;
+				{/*<MovieList movies={movies}/>
+					favouriteComponent={AddFavourites}
 					handleFavouritesClick={addFavouriteMovie}*/}
 			</div>
 			{/*<div className='row d-flex align-items-center mt-4 mb-4'>
