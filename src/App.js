@@ -4,26 +4,26 @@ import './App.css';
 import MovieList from './components/MovieList';
 import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
-import AddFavourites from './components/AddToFavourites';
-import RemoveFavourites from './components/RemoveFavourites';
+//import AddFavourites from './components/AddToFavourites';
+//import RemoveFavourites from './components/RemoveFavourites';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
-	const [favourites, setFavourites] = useState([]);
+	//const [favourites, setFavourites] = useState([]);
 
 	const getMovieRequest = async (searchValue) => {
-		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
+		const url = `https://api.themoviedb.org/3/search/movie?api_key=4e44d9029b1270a757cddc766a1bcb63&query=${searchValue}`;
 
 		const response = await fetch(url);
 		const responseJson = await response.json();
 
-		if (responseJson.Search) {
-			setMovies(responseJson.Search);
+		if (responseJson.results) {
+			setMovies(responseJson.results);
 		}
 	};
 
-	const addFavouriteMovie = (movie) => {
+	{/*const addFavouriteMovie = (movie) => {
 		const newFavouriteList = [...favourites, movie];
 		setFavourites(newFavouriteList);
 	};
@@ -34,7 +34,7 @@ const App = () => {
 		);
 
 		setFavourites(newFavouriteList);
-	};
+	};*/}
 
 	useEffect(() => {
 		getMovieRequest(searchValue);
@@ -47,13 +47,11 @@ const App = () => {
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
 			</div>
 			<div className='row'>
-				<MovieList
-					movies={movies}
-					favouriteComponent={AddFavourites}
-					handleFavouritesClick={addFavouriteMovie}
-				/>
+				<MovieList movies={movies}/>
+					{/*favouriteComponent={AddFavourites}
+					handleFavouritesClick={addFavouriteMovie}*/}
 			</div>
-			<div className='row d-flex align-items-center mt-4 mb-4'>
+			{/*<div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Favourites' />
 			</div>
 			<div className='row'>
@@ -62,7 +60,7 @@ const App = () => {
 					handleFavouritesClick={removeFavouriteMovie}
 					favouriteComponent={RemoveFavourites}
 				/>
-			</div>
+			</div>*/}
 		</div>
 	);
 };

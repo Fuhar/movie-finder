@@ -1,4 +1,4 @@
-import React from 'react';
+{/*import React from 'react';
 
 const AddFavourite = () => {
 	return (
@@ -21,4 +21,4 @@ const AddFavourite = () => {
 	);
 };
 
-export default AddFavourite;
+export default AddFavourite;*/}
